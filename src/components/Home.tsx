@@ -1,9 +1,15 @@
 import { Container, Row, Col, Image, Form } from "react-bootstrap"
 import { useState, useEffect } from "react";
 import { photoData } from "../data/photoData";
+import SortableList, { SortableItem } from 'react-easy-sort'
+import { arrayMoveImmutable } from 'array-move'
 
 const Home = () => {
     const [data, setPhotoData] = useState<{ id: number; photo: string; }[]>([]);
+    const [items, setItems] = useState(photoData)
+    const onSortEnd = (oldIndex: number, newIndex: number) => {
+        setItems((array) => arrayMoveImmutable(array, oldIndex, newIndex))
+      }
     console.log(data)
     useEffect(() => {
         return setPhotoData(photoData);
