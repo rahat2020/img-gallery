@@ -25,16 +25,17 @@ const Home = () => {
                             </Form.Group>
                             <h6 className="text-danger cursor-pointer">Delete Files</h6>
                         </div>
+                        <SortableList onSortEnd={onSortEnd} className="list" draggedItemClassName="dragged">
                         <Row className="gy-2">
                             <Col md={5} className="">
                                 <Row className="gy-2">
                                     <Col md={12}>
                                         <div className="d-flex justify-content-end align-items-center">
-                                            <Image src={data[0]?.photo} alt="image" className="rghtImg" />
+                                            <Image src={items[0]?.photo} alt="image" className="rghtImg" />
                                         </div>
                                     </Col>
                                     {
-                                        data.slice(0, 2).map((item, index: number) => (
+                                        items.slice(0, 2).map((item, index: number) => (
                                             <Col md={6} key={index}>
                                                 <Row className="gy-2 my-2">
                                                     <Col md={10} className="border">
@@ -51,7 +52,7 @@ const Home = () => {
                             <Col md={7}>
                                 <Row className="gy-3">
                                     {
-                                        data.slice(3, 11).map((item, index: number) => (
+                                        items.slice(3, 11).map((item, index: number) => (
                                             <Col md={4} key={index} className="">
                                                 <div className="d-flex justify-content-center align-items-center colRight">
                                                     <Image src={item?.photo} alt="image" className="leftImg" />
@@ -72,6 +73,8 @@ const Home = () => {
                             </Col>
 
                         </Row>
+
+                        </SortableList>
                     </div>
                 </div>
             </Container>
