@@ -1,4 +1,4 @@
-import { Container, Row, Col, Image, Form, Button } from "react-bootstrap"
+import { Container, Image, Form, Button } from "react-bootstrap"
 import { useState } from "react";
 import { photoData } from "../data/photoData";
 import SortableList, { SortableItem } from 'react-easy-sort'
@@ -29,14 +29,17 @@ const Home = () => {
         const selectedPhotoIds = selectedItems.map(item => item.id);
         const filteredArray = items.filter(item => !selectedPhotoIds.includes(item.id));
         setItems(filteredArray);
+        setSelectedItems([]);
         console.log('filteredArray', filteredArray);
-    }
+      }
+      
+ 
 
     return (
         <div className="boxContainer">
             <Container>
                 <div className="p-3 d-flex justify-content-center align-items-center ">
-                    <div className="box w-75">
+                    <div className="box ">
                         <div className="px-4 pe-4 my-2 d-flex justify-content-between algin-items-center border-bottom mb-1">
                             <Form.Group className="mt-2" id="formGridCheckbox">
                                 <Form.Check type="checkbox" className="fw-bold text-dark"
@@ -44,80 +47,31 @@ const Home = () => {
                             </Form.Group>
                             <Button className="btn_delete" onClick={handleDelete}>Delete Files</Button>
                         </div>
-                        <div className="p-3">
+
+                        <section className="p-3 w-100">
                             <SortableList onSortEnd={onSortEnd} className="list" draggedItemClassName="dragged">
-                                <Row className="gy-2">
-                                    <Col md={5}>
-                                        <Row className="gy-2">
-                                            <Col md={12}>
-                                                <div className="d-flex justify-content-end align-items-center colLeft">
-                                                    <Image src={items[0]?.photo} alt="image" className="leftImg" />
-                                                    <div className="imgOverlay" id={selectedItems.length > 0 ? "checkedValue" : ''}>
-                                                        <Form.Group className="checkbox" id="formGridCheckbox1">
-                                                            <Form.Check type="checkbox" className='m-3'
-                                                                onChange={() => handleCheckboxChange(items[0])}
-                                                            />
-                                                        </Form.Group>
+                                <div className="grid_row">
+                                    {
+                                        items?.map((item, index: number) => (
+                                            <div className={`${index === 0 ? "test-cls" : ""}`} key={index}>
+                                                <SortableItem>
+                                                    <div className="gallery__item d-flex justify-content-center align-items-center">
+                                                        <Image src={item?.photo} alt="image" className="gallery__item_img" />
+                                                        <div className="imgOverlay" id={selectedItems.length > 0 ? "checkedValue" : ''}>
+                                                            <Form.Group className="checkbox" id="formGridCheckbox1">
+                                                                <Form.Check type="checkbox" className='m-3'
+                                                                    onChange={() => handleCheckboxChange(item)}
+                                                                />
+                                                            </Form.Group>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </Col>
-                                            {
-                                                items.slice(0, 2).map((item, index: number) => (
-                                                    <SortableItem key={index}>
-                                                        <Col md={6} >
-                                                            <Row className="gy- my-1">
-                                                                <Col md={12} className="">
-                                                                    <div className="d-flex justify-content-end align-items-end leftColBottom">
-                                                                        <Image src={item?.photo} alt="image" className="leftBottomImg" />
-                                                                        <div className="imgOverlay" id={selectedItems.length > 0 ? "checkedValue" : ''}>
-                                                                            <Form.Group className="checkbox" id="formGridCheckbox1">
-                                                                                <Form.Check type="checkbox" className='m-3'
-                                                                                    onChange={() => handleCheckboxChange(items[0])}
-                                                                                />
-                                                                            </Form.Group>
-                                                                        </div>
-                                                                    </div>
-                                                                </Col>
-                                                            </Row>
-                                                        </Col>
-
-                                                    </SortableItem>
-                                                ))
-                                            }
-                                        </Row>
-                                    </Col>
-                                    <Col md={7}>
-                                        <Row className="gy-3">
-                                            {
-                                                items.slice(3, 11).map((item, index: number) => (
-                                                    <SortableItem key={index}>
-                                                        <Col md={4}>
-                                                            <div className="d-flex justify-content-center align-items-center colRight">
-                                                                <Image src={item?.photo} alt="image" className="rightImg" />
-                                                                <div className="imgOverlay" id={selectedItems.length > 0 ? "checkedValue" : ''}>
-                                                                    <Form.Group className="checkbox" id="formGridCheckbox1">
-                                                                        <Form.Check type="checkbox" className='m-3'
-                                                                            onChange={() => handleCheckboxChange(item)}
-                                                                        />
-                                                                    </Form.Group>
-                                                                </div>
-                                                            </div>
-
-                                                        </Col>
-                                                    </SortableItem>
-
-                                                ))
-                                            }
-                                            {/* <div className="imgAdd">
-                                        <Form.Control type="file" />
-                                    </div> */}
-                                        </Row>
-                                    </Col>
-
-                                </Row>
-
+                                                </SortableItem>
+                                            </div>
+                                        ))
+                                    }
+                                </div>
                             </SortableList>
-                        </div>
+                        </section>
                     </div>
                 </div>
             </Container>
