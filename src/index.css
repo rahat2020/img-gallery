@@ -81,3 +81,32 @@
   align-items: start;
   opacity: .6;
 }
+
+/* checkd value */
+#checkedValue{
+  display: none;
+  position: relative;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transition: opacity 0.3s ease-in-out;
+  background-color: #000;
+  opacity: 0;
+  cursor: pointer;
+}
+.colRight #checkedValue {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  opacity: .6;
+}
+.btn_delete{
+  border: none !important;
+  font-weight: bold !important;
+  background-color: #fff !important;
+  color: #ff0000 !important;
+}
