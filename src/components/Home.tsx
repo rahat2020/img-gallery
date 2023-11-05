@@ -24,7 +24,7 @@ const Home = () => {
         }
     };
 
-    // DELETE PHOTO
+    // DELETE PHOTO FUNCTIONALITIES
     const handleDelete = () => {
         const selectedPhotoIds = selectedItems.map(item => item.id);
         const filteredArray = items.filter(item => !selectedPhotoIds.includes(item.id));
@@ -56,7 +56,7 @@ const Home = () => {
                                             <div className={`${index === 0 ? "test-cls" : ""}`} key={index}>
                                                 <SortableItem>
                                                     <div className="gallery__item d-flex justify-content-center align-items-center">
-                                                        <Image src={item?.photo} alt="image" className="gallery__item_img" />
+                                                        <Image src={item?.photo} alt="images" className="gallery__item_img" loading="lazy"/>
                                                         <div className="imgOverlay" id={selectedItems.length > 0 ? "checkedValue" : ''}>
                                                             <Form.Group className="checkbox" id="formGridCheckbox1">
                                                                 <Form.Check type="checkbox" className='m-3'

@@ -1,5 +1,7 @@
 ## React Grid Image Gallery 
 
+### Live link - [Image-Gallery](https://imagee-gallery.netlify.app/)
+
 ### Features
 - Single & Multiple photo selection.
 - Photo Deletions.
@@ -17,7 +19,7 @@
 - Implemented deletion functionalities.
 - Implemented drag and drop functionality to interact dynamically with the gallery.
 
-### Steps needs to use this project
+### Steps needs you to use this project
 - Download or clone the project in your machine.
 - Open the project in your code editor.
 - Open the terminal and write npm i  or npm install
