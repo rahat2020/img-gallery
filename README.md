@@ -6,9 +6,11 @@
 - Single & Multiple photo selection.
 - Photo Deletions.
 - Drag and drop functionality.
+- Dynamic add photo options.
 - Responsiveness functionality.
 - Used React-Bootstrap for styles.
 - Used CSS Grid layout for creating image-gallery.
+
 
 ### Steps needs to me to do:
 - Create the project with vite.
@@ -18,6 +20,7 @@
 - Define the logic of single and multiple selecting photos.
 - Implemented deletion functionalities.
 - Implemented drag and drop functionality to interact dynamically with the gallery.
+- Implemented add photos functionality to interact dynamically with the gallery.
 
 ### Steps needs you to use this project
 - Download or clone the project in your machine.
