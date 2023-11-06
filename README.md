@@ -8,7 +8,7 @@
 - Drag and drop functionality.
 - Dynamic add photo options.
 - Responsiveness functionality.
-- Used React-Bootstrap for styles.
+- Used React-Bootstrap for styles and used material Ui icons for using icons.
 - Used CSS Grid layout for creating image-gallery.
 
 
