@@ -3,13 +3,12 @@
   padding: 0;
   border: box-sizing;
 }
-
+/* box styles */
 .boxContainer {
   background-color: #EDF1F7;
   width: 100%;
-  height: 100vh;
+  height: 110vh;
 }
-
 .box {
   background-color: #fff;
   width: 75%;
@@ -17,22 +16,7 @@
   border-radius: 5px;
 }
 
-/* image add styles */
-.imgAdd {
-  width: 270px;
-  height: 140px;
-  border: 1px dashed #d0cdcdd7;
-  object-fit: cover;
-  transition: all 0.2s ease-in-out;
-  border-radius: 5px;
-}
-
-/* right image styles */
-.test-cls {
-  grid-column: span 2 / span 2;
-  grid-row: span 2 / span 2;
-}
-
+/* grid layout styles */
 .grid_row {
   width: 100%;
   display: grid;
@@ -44,6 +28,15 @@
   width: 100%;
   height: 100%;
 }
+.test-cls {
+  grid-column: span 2 / span 2;
+  grid-row: span 2 / span 2;
+}
+.showAdd {
+  grid-column: span 2 / span 2;
+  grid-row: span 2 / span 2;
+}
+
 .gallery__item_img {
   width: 100%;
   height: 100%;
@@ -78,7 +71,7 @@
 }
 
 
-/* checkd slected items */
+/* checked slected items */
 #checkedValue {
   display: none;
   position: relative;
@@ -91,7 +84,6 @@
   opacity: 0;
   cursor: pointer;
 }
-
 .gallery__item #checkedValue {
   position: absolute;
   top: 0;
@@ -102,6 +94,21 @@
   opacity: .6;
 }
 
+/* add image  styles*/
+.addImg_Title{
+  color: #545556;
+  font-weight: 500;
+}
+.grid_add_img{
+  border: 1.5px dashed #d0cdcdd7;
+  background-color: #FAFBFB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* delete photos styles*/
 .btn_delete {
   border: none !important;
   font-weight: bold !important;
@@ -109,6 +116,8 @@
   color: #ff0000 !important;
 }
 
+
+/* responsive media styles */
 @media (max-width: 768px) {
   .boxContainer{
     height: 100%;

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { photoData } from "../data/photoData";
 import SortableList, { SortableItem } from 'react-easy-sort'
 import { arrayMoveImmutable } from 'array-move';
+import CollectionsIcon from '@mui/icons-material/Collections';
 
 const Home = () => {
 
@@ -31,9 +32,17 @@ const Home = () => {
         setItems(filteredArray);
         setSelectedItems([]);
         console.log('filteredArray', filteredArray);
-      }
-      
- 
+    }
+
+    // ADD PHOTO TO THE IMAGE ARRAY
+    const handleAddImageOnClick = () => {
+        const newImage = {
+            id: Date.now(),
+            photo: 'https://static.vecteezy.com/system/resources/previews/007/642/164/original/headphone-earphone-headset-for-music-line-pop-art-potrait-logo-colorful-design-with-dark-background-abstract-illustration-vector.jpg',
+        };
+        setItems([...items, newImage]);
+    };
+
 
     return (
         <div className="boxContainer">
@@ -51,24 +60,35 @@ const Home = () => {
                         <section className="p-3 w-100">
                             <SortableList onSortEnd={onSortEnd} className="list" draggedItemClassName="dragged">
                                 <div className="grid_row">
-                                    {
-                                        items?.map((item, index: number) => (
-                                            <div className={`${index === 0 ? "test-cls" : ""}`} key={index}>
-                                                <SortableItem>
-                                                    <div className="gallery__item d-flex justify-content-center align-items-center">
-                                                        <Image src={item?.photo} alt="images" className="gallery__item_img" loading="lazy"/>
-                                                        <div className="imgOverlay" id={selectedItems.length > 0 ? "checkedValue" : ''}>
-                                                            <Form.Group className="checkbox" id="formGridCheckbox1">
-                                                                <Form.Check type="checkbox" className='m-3'
-                                                                    onChange={() => handleCheckboxChange(item)}
-                                                                />
-                                                            </Form.Group>
-                                                        </div>
+                                    {/* showing photos in the grid layout */}
+                                    {items?.map((item, index) => (
+                                        <div className={index === 0 ? "test-cls" : ""} key={index}>
+                                            <SortableItem>
+                                                <div className="gallery__item d-flex justify-content-center align-items-center">
+                                                    <Image src={item?.photo} alt="images" className="gallery__item_img" loading="lazy" />
+                                                    <div className="imgOverlay" id={selectedItems.length > 0 ? "checkedValue" : ""}>
+                                                        <Form.Group className="checkbox" id="formGridCheckbox1">
+                                                            <Form.Check
+                                                                type="checkbox"
+                                                                className="m-3"
+                                                                onChange={() => handleCheckboxChange(item)}
+                                                            />
+                                                        </Form.Group>
                                                     </div>
-                                                </SortableItem>
+                                                </div>
+                                            </SortableItem>
+                                        </div>
+                                    ))}
+
+                                    {/* Add an image option at the end of the grid items*/}
+                                    <div className="grid_item grid_add_img" onClick={handleAddImageOnClick}>
+                                        <div className="gallery__item d-flex justify-content-center align-items-center">
+                                            <div className="add-image-button gap-3 d-flex flex-column justify-content-center align-items-center">
+                                                <CollectionsIcon />
+                                                <span className="addImg_Title">Add Images</span>
                                             </div>
-                                        ))
-                                    }
+                                        </div>
+                                    </div>
                                 </div>
                             </SortableList>
                         </section>

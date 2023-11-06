@@ -39,9 +39,5 @@ export const photoData  = [
         id:10,
         photo:"https://res.cloudinary.com/rahatdev1020/image/upload/v1699015137/image-1_dv1vdf.webp"
     },
-    {
-        id:11,
-        photo:"https://res.cloudinary.com/rahatdev1020/image/upload/v1699015137/image-2_ca2i0l.webp"
-    },
 
 ]
